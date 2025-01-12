@@ -1,0 +1,42 @@
+We want you to write a REST API for crud in a js file. 
+Use the "/users" name for the route.And "/users/:id" for GET,PUT,DELETE methods
+
+use the following function to connect to DB
+
+
+`
+const { MongoClient, ObjectId } = require("mongodb");
+const { MongoMemoryServer } = require("mongodb-memory-server");
+
+const connectDB = async (dbName = "defaultDB", useInMemoryDb = true) => {
+  try {
+    if (useInMemoryDb) {
+      mongoServer = await MongoMemoryServer.create();
+      dbUri = mongoServer.getUri(); // Get the URI for the in-memory MongoDB server
+      console.log("Using in-memory MongoDB server");
+    } else {
+      dbUri = `mongodb://localhost:27017/${dbName}`;
+      console.log(`Connecting to MongoDB at ${dbUri}`);
+    }
+
+    const client = new MongoClient(dbUri);
+    await client.connect();
+    db = client.db();
+    usersCollection = db.collection("users");
+    console.log(`Connected to database: ${dbName}`);
+  } catch (err) {
+    console.error("Error connecting to MongoDB:", err);
+    process.exit(1);
+  }
+};
+`
+
+run this command
+
+`npm install jest supertest mongodb-memory-server --save-dev`
+
+then if provided the index.test.js file then run 
+
+`npm run test`
+
+otherwise provide your index.js files to the interviewer for testing
