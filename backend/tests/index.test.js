@@ -27,7 +27,6 @@ describe("User CRUD Operations", () => {
   afterAll(async () => {
     await mongoServer.stop();
     await client.close();
-    process.exit(0);
   });
 
   let userId;

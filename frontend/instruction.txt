@@ -1,0 +1,7 @@
+- use the following API `https://jsonplaceholder.typicode.com/users`
+
+- convert the data into User Data Model class Objects.
+- display them in a list with name, username, phone number.
+- implement Dark theme : there should be a toggle button in your app in a settings page that turn the theme dark and this change should be global.
+- make sure to use the default http package for API resopnse and Providers or Static Class members for state management.
+- you are free to choose the UI for the users and Settings page.
